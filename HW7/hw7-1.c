@@ -1,16 +1,17 @@
 #include <stdio.h>
+#include <string.h>
 #include "hw7-1.h"
 
 int GameStart() {
     printf("Welcome to the game A = B, please select the level\n");
 
-    int x;
-    if (scanf("%d", &x) != 1) { // 檢查是否成功讀取數字
-        while (getchar() != '\n'); // 清空輸入緩衝區
+    char str[100];
+    scanf("%s", str);
+
+    if (strcmp(str, "1") != 0 && strcmp(str, "2") != 0) {
         return -1;
     }
 
-    if (x != 1 && x != 2) return -1;
-
-    return x; 
+    if (strcmp(str, "1") == 0) return 1;
+    if (strcmp(str, "2") == 0) return 2;
 }
